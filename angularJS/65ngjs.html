@@ -11,50 +11,35 @@
         crossorigin="anonymous">
 </head>
 
-<body ng-app="valor" ng-controller="ctrl62">
+<body ng-app="valor" ng-controller="ctrl65">
     <main class="container">
-        <h2>62) Escrever um algoritmo para ler dois valores e uma das seguintes
-                operações a serem executadas (codificadas da seguinte forma: 1 –
-                Adição, 2 – Subtração, 3 – Multiplicação e 4 – Divisão). Calcular e
-                escrever o resultado dessa operação sobre os dois valores lidos.</h2>
+        <h2>65) Faça um algoritmo que receba o valor do salário de uma pessoa e
+                o valor de um financiamento pretendido. Caso o financiamento seja
+                menor ou igual a 5 vezes o salário da pessoa, o algoritmo deverá
+                escrever “Financiamento Concedido”; senão, ele deverá escrever
+                “Financiamento Negado”. Independente de conceder ou não o
+                financiamento, o algoritmo escreverá depois a frase “Obrigado por nos
+                consultar.”</h2>
             
         <div class="form-group">
-            <label for="">Informe um número</label>
+            <label for="">Salario</label>
             <input type="number" id="valor" ng-model="n1" class="form-control">
         </div>
         <div class="form-group">
-            <label for="">Informe outro número</label>
+            <label for="">Emprestimo</label>
             <input type="number" id="valor" ng-model="n2" class="form-control">
         </div>
-        <!--div class="form-group">
-            <label for="">Opções</label>
-            <input type="number" id="valor" min="0" max="4" ng-model="op" class="form-control">
-        </div-->
-        <div class="form-group">
-            <label for="op">operações</label>
-            <select class="form-control" id="opc" name="op" ng-model="op">
-               <option value="1">Adição</option>
-               <option value="2">Subtração</option>
-               <option value="3">Multiplicação</option>
-               <option value="4">Divisão</option>
-            </select>
-        </div>
-        
-        <p class="alert alert-success" id="saida"> {{ saida(n1, n2, op) }}</p>
+             
+        <p class="alert alert-success" id="saida"> {{ saida(n1, n2) }}</p>
 
         <script> 
         var app = angular.module('valor', []);
-        app.controller('ctrl62', function($scope){
-        $scope.saida = function(n1, n2, op){ 
+        app.controller('ctrl65', function($scope){
+        $scope.saida = function(n1, n2){ 
         
-        if(op == 1)
-            return "Resultado: " + (n1 + n2);
-        if(op == 2) 
-            return "Resultado: " + (n1 - n2);    
-        if(op == 3)
-            return "Resultado: " + (n1 * n2);
-        if(op == 4)
-            return "Resultado: " + (n1 / n2);  
+            if((n1 * 5) >= n2 )
+                return "Financiamento Concedido"
+            return "Financiamento Negado"
          }
 
         });
