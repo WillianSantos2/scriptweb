@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicios JS</title>
+    <script src ="angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body ng-app="valor" ng-controller="ctrl62">
+    <main class="container">
+        <h2>62) Escrever um algoritmo para ler dois valores e uma das seguintes
+                operações a serem executadas (codificadas da seguinte forma: 1 –
+                Adição, 2 – Subtração, 3 – Multiplicação e 4 – Divisão). Calcular e
+                escrever o resultado dessa operação sobre os dois valores lidos.</h2>
+            
+        <div class="form-group">
+            <label for="">Informe um número</label>
+            <input type="number" id="valor" ng-model="n1" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Informe outro número</label>
+            <input type="number" id="valor" ng-model="n2" class="form-control">
+        </div>
+        <!--div class="form-group">
+            <label for="">Opções</label>
+            <input type="number" id="valor" min="0" max="4" ng-model="op" class="form-control">
+        </div-->
+        <div class="form-group">
+            <label for="op">operações</label>
+            <select class="form-control" id="opc" name="op" ng-model="op">
+               <option value="1">Adição</option>
+               <option value="2">Subtração</option>
+               <option value="3">Multiplicação</option>
+               <option value="4">Divisão</option>
+            </select>
+        </div>
+        
+        <p class="alert alert-success" id="saida"> {{ saida(n1, n2, op) }}</p>
+
+        <script> 
+        var app = angular.module('valor', []);
+        app.controller('ctrl62', function($scope){
+        $scope.saida = function(n1, n2, op){ 
+        
+        if(op == 1)
+            return "Resultado: " + (n1 + n2);
+        if(op == 2) 
+            return "Resultado: " + (n1 - n2);    
+        if(op == 3)
+            return "Resultado: " + (n1 * n2);
+        if(op == 4)
+            return "Resultado: " + (n1 / n2);  
+         }
+
+        });
+        </script>
+    </main>
+</body>
+
+</html>
