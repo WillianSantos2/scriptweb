@@ -1,0 +1,49 @@
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Exercicios JS</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous">
+	<script src="angular.min.js"></script>
+</head>
+
+<body ng-app="66" ng-controller="ctrl66">
+	<main class="container">
+		<h3>66) A Secretaria de Meio Ambiente que controla o índice de poluição mantém 3 grupos de indústrias que são altamente poluentes
+			do meio ambiente. O índice de poluição aceitável varia de 0 (zero) até 0,25. Se o índice sobe para 0,3 as indústrias do
+			1o grupo são intimadas a suspenderem suas atividades, se o índice crescer para 0,4 as indústrias do 1o e 2o grupo são
+			intimadas a suspenderem suas atividades, se o índice atingir 0,5 todos os grupos devem ser notificados a paralisarem suas
+			atividades. Faça um algoritmo que leia o índice de poluição medido e emita a notificação adequada aos diferentes grupos
+			de empresas.</h3>
+		<div class="form-group">
+			<label for="">Digite o índice de poluição das indústrias</label>
+			<input type="number" id="valor" min="0" max="1" ng-model="valor" class="form-control">
+			
+			<span id="saida" ng-if="!valor"> Controller: {{ saida() }} </span>
+			<p class="alert alert-success" ng-if="valor > 0.25 && valor < 0.3"> ng-IF: Empresas do 1º grupo devem encerrar suas atividades </p>
+			<p class="alert alert-success" ng-if="valor >= 0.3 && valor < 0.4"> ng-IF: Empresas do 1º e 2 grupo devem encerrar suas atividades </p>
+			<p class="alert alert-success" ng-if="valor >= 0.4"> ng-IF: Todas as Empresas devem encerrar suas atividades </p>
+
+			<script>
+				var app = angular.module("66", []);
+				app.controller("ctrl66", function ($scope) {
+					$scope.saida = function () {
+						if (($scope.valor > 0.25) || ($scope.valor < 0.3)) {
+							return "Empresas do 1º grupo devem encerrar suas atividades";
+
+						}
+						if (($scope.valor > 0.3) || ($scope.valor == 0.4)) {
+							return "Empresas do 1º e 2º grupo devem encerrar suas atividades ";
+
+						}
+						return "Todos os grupos devem encerrar suas atividades";
+					}
+				}
+				);
+
+			</script>
+	</main>
+</body>
